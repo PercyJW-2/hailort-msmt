@@ -6,4 +6,5 @@ set(CMAKE_CXX_STANDARD 26)
 include_directories(include)
 
 add_executable(hailort-msmt main.cpp)
-TARGET_LINK_LIBRARIES(hailort-msmt libhailort.so.5.3.0)
+find_package(Threads REQUIRED)
+target_link_libraries(hailort-msmt hailort Threads::Threads)
